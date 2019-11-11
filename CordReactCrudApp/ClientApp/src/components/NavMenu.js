@@ -44,15 +44,15 @@ export class NavMenu extends Component {
                  </LinkContainer>
 
 
-                    <LinkContainer to={'/studentList'}>
+                    <LinkContainer to={'/userList'}>
                         <NavItem>
-                            <Glyphicon glyph='th-list' />Student List
+                            <Glyphicon glyph='th-list' />User List
               </NavItem>
                     </LinkContainer>
 
-                    <LinkContainer to={'/addStudent'}>
+                    <LinkContainer to={'/addUser'}>
                         <NavItem>
-                            <Glyphicon glyph='th-list' />Register Student
+                            <Glyphicon glyph='th-list' />Register User
               </NavItem>
                     </LinkContainer>
                 </Nav>

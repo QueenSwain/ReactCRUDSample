@@ -15,7 +15,7 @@ namespace CoreReactCrudApp.Models
         {
         }
 
-        public virtual DbSet<Students> Students { get; set; }
+        public virtual DbSet<User> User { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -28,9 +28,9 @@ namespace CoreReactCrudApp.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Students>(entity =>
+            modelBuilder.Entity<User>(entity =>
             {
-                entity.HasKey(e => e.StudentId);
+                entity.HasKey(e => e.UserId);
 
                 entity.Property(e => e.Address).HasMaxLength(200);
 

@@ -2,8 +2,8 @@
 import { Route } from 'react-router';
 import { Link, NavLink, RouteComponentProps } from 'react-router-dom';
 
-interface StudentRecordState {
-    studentListData: StudentListData[];
+interface UserRecordState {
+    userListData: UserListData[];
     loading: boolean;
 }
 
@@ -12,7 +12,7 @@ interface StudentRecordState {
 // Tip: Add @types/react to package.json to fix this.state missing error
 // Source : https://stackoverflow.com/questions/51090887/property-state-does-not-exist-on-type-fetchperiod
 
-export class StudentList extends React.Component<RouteComponentProps<{}>, StudentRecordState> {
+export class UserList extends React.Component<RouteComponentProps<{}>, UserRecordState> {
     //Declaring the constructor 
     constructor(props) {
 
@@ -20,14 +20,14 @@ export class StudentList extends React.Component<RouteComponentProps<{}>, Studen
         super(props);
 
         //here we are intializing the interface's fields using default values.
-        this.state = { studentListData: [], loading: true };
+        this.state = { userListData: [], loading: true };
 
         //this fetch method is responsible to get all the student record using web api.
-        fetch('api/Student/Index')
-            .then(response => response.json() as Promise<StudentListData[]>)
+        fetch('api/User/Index')
+            .then(response => response.json() as Promise<UserListData[]>)
             .then(data => {
                 debugger
-                this.setState({ studentListData: data, loading: false });
+                this.setState({ userListData: data, loading: false });
             });
 
         this.FuncDelete = this.FuncDelete.bind(this);
@@ -39,28 +39,28 @@ export class StudentList extends React.Component<RouteComponentProps<{}>, Studen
     public render() {
         let contents = this.state.loading
             ? <p><em>Loading...</em></p>
-            : this.renderStudentTable(this.state.studentListData);//this renderStudentTable method will return the HTML table. This table will display all the record.
+            : this.renderUserTable(this.state.userListData);//this renderStudentTable method will return the HTML table. This table will display all the record.
         return <div>
-            <h1>Student Record</h1>
+            <h1>User Record</h1>
             <p>
-                <Link to="/addStudent">Create New</Link>
+                <Link to="/addUser">Create New</Link>
             </p>
             {contents}
         </div>;
     }
     // this method will be responsible for deleting the student record.
     private FuncDelete(id: number) {
-        if (!window.confirm("Do you want to delete student with this Id: " + id))
+        if (!window.confirm("Do you want to delete user with this Id: " + id))
             return;
         else {
             //this fetch method will get the specific student record using student id.
-            fetch('api/Student/Delete/' + id, {
+            fetch('api/User/Delete/' + id, {
                 method: 'delete'
             }).then(data => {
                 this.setState(
                     {
-                        studentListData: this.state.studentListData.filter((rec) => {
-                            return (rec.studentId != id);
+                        userListData: this.state.userListData.filter((rec) => {
+                            return (rec.userId != id);
                         })
                     });
             });
@@ -69,11 +69,11 @@ export class StudentList extends React.Component<RouteComponentProps<{}>, Studen
       
     //this method will responsible for editing the specific student record.
     private FuncEdit(id: number) {
-        this.props.history.push("/student/edit/" + id);
+        this.props.history.push("/user/edit/" + id);
     }
 
     //this method will return the html table to display all the student record with edit and delete methods.
-    private renderStudentTable(studentListData: StudentListData[]) {
+    private renderUserTable(userListData: UserListData[]) {
         return <table className='table'>
             <thead>
                 <tr>
@@ -84,15 +84,15 @@ export class StudentList extends React.Component<RouteComponentProps<{}>, Studen
                 </tr>
             </thead>
             <tbody>
-                {studentListData.map(item =>
-                    <tr key={item.studentId}>
+                {userListData.map(item =>
+                    <tr key={item.userId}>
                         <td >{item.name}</td>
                         <td >{item.address}</td>
                         <td >{item.country}</td>
                         <td >{item.phoneNo}</td>
                         <td >
-                            <a className="action" onClick={(id) => this.FuncEdit(item.studentId)}>Edit</a>|
-                            <a className="action" onClick={(id) => this.FuncDelete(item.studentId)}>Delete</a>
+                            <a className="action" onClick={(id) => this.FuncEdit(item.userId)}>Edit</a>|
+                            <a className="action" onClick={(id) => this.FuncDelete(item.userId)}>Delete</a>
                         </td>
                     </tr>
                 )}
@@ -102,8 +102,8 @@ export class StudentList extends React.Component<RouteComponentProps<{}>, Studen
 }
 
 //here we are declaring a class which have the same properties as we have in model class.
-export class StudentListData {
-    studentId: number = 0;
+export class UserListData {
+    userId: number = 0;
     name: string = "";
     address: string = "";
     country: string = "";

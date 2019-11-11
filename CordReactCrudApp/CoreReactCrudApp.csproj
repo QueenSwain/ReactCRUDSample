@@ -34,12 +34,9 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\components\AddNewStudent.tsx" />
+    <None Remove="ClientApp\src\components\AddNewUser.tsx" />
     <None Remove="ClientApp\src\components\StudentList.tsx" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\src\components\AddNewStudent.tsx" />
-    <TypeScriptCompile Include="ClientApp\src\components\StudentList.tsx" />
+    <None Remove="ClientApp\src\components\UserList.tsx" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

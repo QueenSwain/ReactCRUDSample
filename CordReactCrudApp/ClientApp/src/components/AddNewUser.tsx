@@ -1,35 +1,35 @@
 ﻿import * as React from 'react';
 import { Route } from 'react-router';
 import { Link, NavLink, RouteComponentProps } from 'react-router-dom';
-import { StudentListData } from './StudentList';
+import { UserListData } from './UserList';
 
-interface AddStudentRecordState {
+interface AddUserRecordState {
     title: string;
     loading: boolean;
-    studentList: StudentListData;
+    userList: UserListData;
 }
 
 
-export class AddStudent extends React.Component<RouteComponentProps<{}>, AddStudentRecordState> {
+export class AddUser extends React.Component<RouteComponentProps<{}>, AddUserRecordState> {
     constructor(props) {
         super(props);
-
+        debugger;
         //here we are intializing the interface's fields with default values.
-        this.state = { title: "", loading: true, studentList: new StudentListData };
+        this.state = { title: "", loading: true, userList: new UserListData };
 
         //the studentid variable will get the student id from URL.
-        var studentid = this.props.match.params["studentid"];
+        var userid = this.props.match.params["userid"];
 
         //if studentid is greater than 0 then fetch method will get the specific student record and display it as in edit mode.
-        if (studentid > 0) {
-            fetch('api/Student/Details/' + studentid)
-                .then(response => response.json() as Promise<StudentListData>)
+        if (userid > 0) {
+            fetch('api/User/Details/' + userid)
+                .then(response => response.json() as Promise<UserListData>)
                 .then(data => {
-                    this.setState({ title: "Edit", loading: false, studentList: data });
+                    this.setState({ title: "Edit", loading: false, userList: data });
                 });
         }
         else {
-            this.state = { title: "Register", loading: false, studentList: new StudentListData };
+            this.state = { title: "Register", loading: false, userList: new UserListData };
         }
 
         this.FuncSave = this.FuncSave.bind(this);
@@ -42,7 +42,7 @@ export class AddStudent extends React.Component<RouteComponentProps<{}>, AddStud
             : this.renderCreateForm();
         return <div>
             <h1>{this.state.title}</h1>
-            <h3>Student</h3>
+            <h3>User</h3>
             <hr />
             {contents}
         </div>;
@@ -56,22 +56,22 @@ export class AddStudent extends React.Component<RouteComponentProps<{}>, AddStud
         event.preventDefault();
         const data = new FormData(event.target);
         // PUT request for Edit employee.  
-        if (this.state.studentList.studentId) {
-            fetch('api/Student/Edit', {
+        if (this.state.userList.userId) {
+            fetch('api/User/Edit', {
                 method: 'PUT',
                 body: data,
             }).then((response) => response.json())
                 .then((responseJson) => {
-                    this.props.history.push("/studentList");
+                    this.props.history.push("/userList");
                 })
         }
         else {
-            fetch('api/Student/Create', {
+            fetch('api/User/Create', {
                 method: 'POST',
                 body: data,
             }).then((response) => response.json())
                 .then((responseJson) => {
-                    this.props.history.push("/studentList");
+                    this.props.history.push("/userList");
                 })
         }
     }
@@ -79,7 +79,7 @@ export class AddStudent extends React.Component<RouteComponentProps<{}>, AddStud
 
     private FuncCancel(e: any) {
         e.preventDefault();
-        this.props.history.push("/studentList");
+        this.props.history.push("/userList");
     }
 
     //this method will return the html table to display all the student record with edit and delete methods.
@@ -87,19 +87,19 @@ export class AddStudent extends React.Component<RouteComponentProps<{}>, AddStud
         return (
             <form onSubmit={this.FuncSave} >
                 <div className="form-group row" >
-                    <input type="hidden" name="StudentId" value={this.state.studentList.studentId} />
+                    <input type="hidden" name="UserId" value={this.state.userList.userId} />
                 </div>
                 < div className="form-group row" >
                     <label className=" control-label col-md-12" htmlFor="name">Name</label>
                     <div className="col-md-4">
-                        <input className="form-control" type="text" name="Name" defaultValue={this.state.studentList.name} required />
+                        <input className="form-control" type="text" name="Name" defaultValue={this.state.userList.name} required />
                     </div>
                 </div >
 
                 <div className="form-group row">
                     <label className="control-label col-md-12" htmlFor="address" >Address</label>
                     <div className="col-md-4">
-                        <input className="form-control" type="text" name="Address" defaultValue={this.state.studentList.address} required />
+                        <input className="form-control" type="text" name="Address" defaultValue={this.state.userList.address} required />
                     </div>
                 </div>
 
@@ -107,13 +107,13 @@ export class AddStudent extends React.Component<RouteComponentProps<{}>, AddStud
                 <div className="form-group row">
                     <label className="control-label col-md-12" htmlFor="Country" >Country</label>
                     <div className="col-md-4">
-                        <input className="form-control" type="text" name="Country" defaultValue={this.state.studentList.country} required />
+                        <input className="form-control" type="text" name="Country" defaultValue={this.state.userList.country} required />
                     </div>
                 </div>
                 <div className="form-group row">
                     <label className="control-label col-md-12" htmlFor="PhoneNo" >Phone No</label>
                     <div className="col-md-4">
-                        <input className="form-control" type="text" name="PhoneNo" defaultValue={this.state.studentList.phoneNo} required />
+                        <input className="form-control" type="text" name="PhoneNo" defaultValue={this.state.userList.phoneNo} required />
                     </div>
                 </div>
 

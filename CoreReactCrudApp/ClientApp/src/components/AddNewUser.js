@@ -19,12 +19,11 @@ var AddUser = /** @class */ (function (_super) {
     __extends(AddUser, _super);
     function AddUser(props) {
         var _this = _super.call(this, props) || this;
-        debugger;
-        //here we are intializing the interface's fields with default values.
+        //providing default value to the interface
         _this.state = { title: "", loading: true, userList: new UserList_1.UserListData };
-        //the studentid variable will get the student id from URL.
+        //the userid variable will get the user id from URL.
         var userid = _this.props.match.params["userid"];
-        //if studentid is greater than 0 then fetch method will get the specific student record and display it as in edit mode.
+        //Checking if user id is exists then enable edit mode.
         if (userid > 0) {
             fetch('api/User/Details/' + userid)
                 .then(function (response) { return response.json(); })
@@ -39,7 +38,7 @@ var AddUser = /** @class */ (function (_super) {
         _this.FuncCancel = _this.FuncCancel.bind(_this);
         return _this;
     }
-    //this method will render html onto the DOM.
+    //Render HTML into DOM
     AddUser.prototype.render = function () {
         var contents = this.state.loading
             ? React.createElement("p", null,
@@ -51,8 +50,7 @@ var AddUser = /** @class */ (function (_super) {
             React.createElement("hr", null),
             contents);
     };
-    //this method will save the record into database. If the URL has an StudentId, 
-    //then it will update the record and if the URL has not student Id parameter than it will save the record.
+    //Check UserId,Save to DB then Update and save the row data.
     AddUser.prototype.FuncSave = function (event) {
         var _this = this;
         event.preventDefault();
@@ -81,7 +79,7 @@ var AddUser = /** @class */ (function (_super) {
         e.preventDefault();
         this.props.history.push("/userList");
     };
-    //this method will return the html table to display all the student record with edit and delete methods.
+    //Show UserList in UI 
     AddUser.prototype.renderCreateForm = function () {
         return (React.createElement("form", { onSubmit: this.FuncSave },
             React.createElement("div", { className: "form-group row" },
@@ -89,22 +87,23 @@ var AddUser = /** @class */ (function (_super) {
             React.createElement("div", { className: "form-group row" },
                 React.createElement("label", { className: " control-label col-md-12", htmlFor: "name" }, "Name"),
                 React.createElement("div", { className: "col-md-4" },
-                    React.createElement("input", { className: "form-control", type: "text", name: "Name", defaultValue: this.state.userList.name, required: true }))),
+                    React.createElement("input", { className: "form-control", type: "text", name: "Name", placeholder: "Enter your full name", defaultValue: this.state.userList.name, required: true }))),
             React.createElement("div", { className: "form-group row" },
                 React.createElement("label", { className: "control-label col-md-12", htmlFor: "address" }, "Address"),
                 React.createElement("div", { className: "col-md-4" },
-                    React.createElement("input", { className: "form-control", type: "text", name: "Address", defaultValue: this.state.userList.address, required: true }))),
+                    React.createElement("input", { className: "form-control", type: "text", name: "Address", placeholder: "Enter your address", defaultValue: this.state.userList.address, required: true }))),
             React.createElement("div", { className: "form-group row" },
                 React.createElement("label", { className: "control-label col-md-12", htmlFor: "Country" }, "Country"),
                 React.createElement("div", { className: "col-md-4" },
-                    React.createElement("input", { className: "form-control", type: "text", name: "Country", defaultValue: this.state.userList.country, required: true }))),
+                    React.createElement("input", { className: "form-control", type: "text", placeholder: "Enter country name", name: "Country", defaultValue: this.state.userList.country, required: true }))),
             React.createElement("div", { className: "form-group row" },
                 React.createElement("label", { className: "control-label col-md-12", htmlFor: "PhoneNo" }, "Phone No"),
                 React.createElement("div", { className: "col-md-4" },
-                    React.createElement("input", { className: "form-control", type: "text", name: "PhoneNo", defaultValue: this.state.userList.phoneNo, required: true }))),
+                    React.createElement("input", { className: "form-control", type: "text", name: "PhoneNo", placeholder: "Enter Phone number", defaultValue: this.state.userList.phoneNo, required: true }))),
             React.createElement("div", { className: "form-group" },
-                React.createElement("button", { type: "submit", className: "btn btn-default" }, "Save"),
-                React.createElement("button", { className: "btn", onClick: this.FuncCancel }, "Cancel"))));
+                React.createElement("button", { type: "submit", className: "btn btn-info" }, "Save"),
+                "\u00A0",
+                React.createElement("button", { className: "btn btn-info", onClick: this.FuncCancel }, "Cancel"))));
     };
     return AddUser;
 }(React.Component));

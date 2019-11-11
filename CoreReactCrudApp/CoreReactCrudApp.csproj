@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -33,9 +33,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\src\components\AddNewStudent.tsx" />
+    <Compile Remove="Controllers\SampleDataController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="ClientApp\src\components\AddNewUser.tsx" />
-    <None Remove="ClientApp\src\components\StudentList.tsx" />
     <None Remove="ClientApp\src\components\UserList.tsx" />
   </ItemGroup>
 

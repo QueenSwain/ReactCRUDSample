@@ -15,48 +15,39 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_router_dom_1 = require("react-router-dom");
-//here declaring the StudentList class. And this StudentList class inherits the abstract class React.Component
-// Tip: Add @types/react to package.json to fix this.state missing error
-// Source : https://stackoverflow.com/questions/51090887/property-state-does-not-exist-on-type-fetchperiod
 var UserList = /** @class */ (function (_super) {
     __extends(UserList, _super);
-    //Declaring the constructor 
     function UserList(props) {
-        var _this = 
-        //here we are calling base class constructor using super()
-        _super.call(this, props) || this;
-        //here we are intializing the interface's fields using default values.
+        var _this = _super.call(this, props) || this;
         _this.state = { userListData: [], loading: true };
-        //this fetch method is responsible to get all the student record using web api.
+        //Get User List from DB using UserController API
         fetch('api/User/Index')
             .then(function (response) { return response.json(); })
             .then(function (data) {
-            debugger;
             _this.setState({ userListData: data, loading: false });
         });
         _this.FuncDelete = _this.FuncDelete.bind(_this);
         _this.FuncEdit = _this.FuncEdit.bind(_this);
         return _this;
     }
-    //this method will render html onto the DOM.
+    //Render html onto the DOM.
     UserList.prototype.render = function () {
         var contents = this.state.loading
             ? React.createElement("p", null,
                 React.createElement("em", null, "Loading..."))
-            : this.renderUserTable(this.state.userListData); //this renderStudentTable method will return the HTML table. This table will display all the record.
+            : this.renderUserTable(this.state.userListData);
         return React.createElement("div", null,
             React.createElement("h1", null, "User Record"),
             React.createElement("p", null,
                 React.createElement(react_router_dom_1.Link, { to: "/addUser" }, "Create New")),
             contents);
     };
-    // this method will be responsible for deleting the student record.
+    // Delete UserById
     UserList.prototype.FuncDelete = function (id) {
         var _this = this;
         if (!window.confirm("Do you want to delete user with this Id: " + id))
             return;
         else {
-            //this fetch method will get the specific student record using student id.
             fetch('api/User/Delete/' + id, {
                 method: 'delete'
             }).then(function (data) {
@@ -68,11 +59,10 @@ var UserList = /** @class */ (function (_super) {
             });
         }
     };
-    //this method will responsible for editing the specific student record.
+    //Edit UserById
     UserList.prototype.FuncEdit = function (id) {
         this.props.history.push("/user/edit/" + id);
     };
-    //this method will return the html table to display all the student record with edit and delete methods.
     UserList.prototype.renderUserTable = function (userListData) {
         var _this = this;
         return React.createElement("table", { className: 'table' },
@@ -97,7 +87,7 @@ var UserList = /** @class */ (function (_super) {
     return UserList;
 }(React.Component));
 exports.UserList = UserList;
-//here we are declaring a class which have the same properties as we have in model class.
+//Class declaration for Model class Properties
 var UserListData = /** @class */ (function () {
     function UserListData() {
         this.userId = 0;

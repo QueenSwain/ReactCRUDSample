@@ -13,14 +13,13 @@ interface AddUserRecordState {
 export class AddUser extends React.Component<RouteComponentProps<{}>, AddUserRecordState> {
     constructor(props) {
         super(props);
-        debugger;
-        //here we are intializing the interface's fields with default values.
-        this.state = { title: "", loading: true, userList: new UserListData };
+        //providing default value to the interface
+        this.state = { title: "", loading: true, userList: new UserListData};
 
-        //the studentid variable will get the student id from URL.
+        //the userid variable will get the user id from URL.
         var userid = this.props.match.params["userid"];
 
-        //if studentid is greater than 0 then fetch method will get the specific student record and display it as in edit mode.
+        //Checking if user id is exists then enable edit mode.
         if (userid > 0) {
             fetch('api/User/Details/' + userid)
                 .then(response => response.json() as Promise<UserListData>)
@@ -35,7 +34,7 @@ export class AddUser extends React.Component<RouteComponentProps<{}>, AddUserRec
         this.FuncSave = this.FuncSave.bind(this);
         this.FuncCancel = this.FuncCancel.bind(this);
     }
-    //this method will render html onto the DOM.
+    //Render HTML into DOM
     public render() {
         let contents = this.state.loading
             ? <p><em>Loading...</em></p>
@@ -50,8 +49,7 @@ export class AddUser extends React.Component<RouteComponentProps<{}>, AddUserRec
 
 
 
-    //this method will save the record into database. If the URL has an StudentId, 
-    //then it will update the record and if the URL has not student Id parameter than it will save the record.
+    //Check UserId,Save to DB then Update and save the row data.
     private FuncSave(event) {
         event.preventDefault();
         const data = new FormData(event.target);
@@ -82,7 +80,7 @@ export class AddUser extends React.Component<RouteComponentProps<{}>, AddUserRec
         this.props.history.push("/userList");
     }
 
-    //this method will return the html table to display all the student record with edit and delete methods.
+    //Show UserList in UI 
     private renderCreateForm() {
         return (
             <form onSubmit={this.FuncSave} >
@@ -92,14 +90,14 @@ export class AddUser extends React.Component<RouteComponentProps<{}>, AddUserRec
                 < div className="form-group row" >
                     <label className=" control-label col-md-12" htmlFor="name">Name</label>
                     <div className="col-md-4">
-                        <input className="form-control" type="text" name="Name" defaultValue={this.state.userList.name} required />
+                        <input className="form-control" type="text" name="Name" placeholder="Enter your full name" defaultValue={this.state.userList.name} required />
                     </div>
                 </div >
 
                 <div className="form-group row">
                     <label className="control-label col-md-12" htmlFor="address" >Address</label>
                     <div className="col-md-4">
-                        <input className="form-control" type="text" name="Address" defaultValue={this.state.userList.address} required />
+                        <input className="form-control" type="text" name="Address" placeholder="Enter your address" defaultValue={this.state.userList.address} required />
                     </div>
                 </div>
 
@@ -107,19 +105,20 @@ export class AddUser extends React.Component<RouteComponentProps<{}>, AddUserRec
                 <div className="form-group row">
                     <label className="control-label col-md-12" htmlFor="Country" >Country</label>
                     <div className="col-md-4">
-                        <input className="form-control" type="text" name="Country" defaultValue={this.state.userList.country} required />
+                        <input className="form-control" type="text" placeholder="Enter country name" name="Country" defaultValue={this.state.userList.country} required />
                     </div>
                 </div>
                 <div className="form-group row">
                     <label className="control-label col-md-12" htmlFor="PhoneNo" >Phone No</label>
                     <div className="col-md-4">
-                        <input className="form-control" type="text" name="PhoneNo" defaultValue={this.state.userList.phoneNo} required />
+                        <input className="form-control" type="text" name="PhoneNo" placeholder="Enter Phone number" defaultValue={this.state.userList.phoneNo} required />
                     </div>
                 </div>
 
                 <div className="form-group">
-                    <button type="submit" className="btn btn-default">Save</button>
-                    <button className="btn" onClick={this.FuncCancel}>Cancel</button>
+                    <button type="submit" className="btn btn-info">Save</button>&nbsp;
+                    <button className="btn btn-info" onClick={this.FuncCancel}>Cancel</button>
+                    
                 </div >
             </form >
         )

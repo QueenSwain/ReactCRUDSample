@@ -10,13 +10,13 @@ namespace CoreReactCrudApp.Models
     {
         ApplicationDBContext db = new ApplicationDBContext();
 
-        //this method will get all the student record
+        //Select All
         public IEnumerable<User> GetAllUser()
         {
             return db.User.ToList();
         }
 
-        //this method will add a new User 
+       //Insert User
         public int CreateUser(User user)
         {
             db.User.Add(user);
@@ -24,20 +24,23 @@ namespace CoreReactCrudApp.Models
             return 1;
 
         }
-        //this method will update the existing User record    
+        
+        //Update User
         public int UpdateUser(User user)
         {
             db.Entry(user).State = EntityState.Modified;
             db.SaveChanges();
             return 1;
         }
-        //this method will get detail of a specific User
+
+
+        //Get data by UserId
         public User GetUserData(int id)
         {
             User user = db.User.Find(id);
             return user;
         }
-        //this method will delete the specifig User record    
+        //Delete data by UserId  
         public int DeleteUser(int id)
         {
             User user = db.User.Find(id);

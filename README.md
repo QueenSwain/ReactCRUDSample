@@ -12,7 +12,7 @@ Install Node.js and npm
 
 Step 1 :
 Create Database 'User'.Now,Run the bellow query to create Table 'User'.
-----------------------------------------------------------------------------------------
+'''
 USE [ApplicationDB]
 GO
 /****** Object:  Table [dbo].[User]    Script Date: 11/12/2019 12:35:30 AM ******/
@@ -33,8 +33,7 @@ CREATE TABLE [dbo].[User](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-----------------------------------------------------------------------------------------
-
+'''
 Step 2 :
 Create dotnet core  application using reactjs template.
 

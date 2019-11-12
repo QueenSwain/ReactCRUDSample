@@ -55,6 +55,10 @@ To set the Route,Go to App.js and add the newly created compents to perform the 
 Step 8:
 Add the Navigation Menu under NavMenu.js
 
+Step 9:
+Now run the application to see the output.
+
+
 
 
 

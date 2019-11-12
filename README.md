@@ -5,9 +5,8 @@
 
 Note:
 Before proceeding with the application development.
-Visual Studio 2017/2019
-Install .Net Core 2.0 
-Node.js and npm
+Install Visual Studio 2017/2019 include .Net Core 2.0
+Install Node.js and npm
 
 Step 1 :
 Create Database 'User'.Now,Run the bellow query to create Table 'User'.

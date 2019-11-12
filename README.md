@@ -5,7 +5,9 @@
 
 Note:
 Before proceeding with the application development.
+
 Install Visual Studio 2017/2019 include .Net Core 2.0
+
 Install Node.js and npm
 
 Step 1 :

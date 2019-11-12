@@ -1,8 +1,6 @@
-# ReactCRUDSample
+ReactCRUDSample
 
-#CRUD operations using Reactjs and Asp Net Core.
-
-
+CRUD operations using Reactjs and Asp Net Core.
 Note:
 Before proceeding with the application development.
 
@@ -11,11 +9,10 @@ Install Visual Studio 2017/2019 include .Net Core 2.0
 Install Node.js and npm
 
 Step 1 :
-Create Database 'User'.Now,Run the bellow query to create Table 'User'.
-'''
+Create Database ‘User’.Now,Run the bellow query to create Table ‘User’.
+
 USE [ApplicationDB]
 GO
-/****** Object:  Table [dbo].[User]    Script Date: 11/12/2019 12:35:30 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -33,26 +30,21 @@ CREATE TABLE [dbo].[User](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-'''
 Step 2 :
-Create dotnet core  application using reactjs template.
+Create dotnet core application using reactjs template.
 
 Step 3 :
-To connect with database(Get/Post of Data) run the bellow command 
+To connect with database(Get/Post of Data) run the bellow command
 Go to Visual Studio ->Tool->Nuget Package Managerment->Package Manager Console
 
--Install-Package Microsoft.EntityFrameworkCore.SqlServer -Version 2.1.11
-
--Install-Package Microsoft.EntityFrameworkCore.Design -Version 2.1.11
-
--Install-Package Microsoft.EntityFrameworkCore.Tools -Version 2.1.11
-
--Scaffold-DbContext "Data Source=QUEEN-MACHINE\SQLEXPRESS01;Initial Catalog=ApplicationDB;Integrated Security=True" Microsoft.
+Install-Package Microsoft.EntityFrameworkCore.SqlServer -Version 2.1.11
+Install-Package Microsoft.EntityFrameworkCore.Design -Version 2.1.11
+Install-Package Microsoft.EntityFrameworkCore.Tools -Version 2.1.11
+Scaffold-DbContext "Data Source=**QUEEN-MACHINE\SQLEXPRESS01**;Initial Catalog=ApplicationDB;Integrated Security=True" Microsoft.
  EntityFrameworkCore.SqlServer -OutputDir Models-Tables User
-
 Step 4 :
 To perform Get/Post/Edit/Delete action in database layer,
-Create a Data Access Layer in the Models folder in Solution Explorer & then add a new class 'UserDAL.cs'.
+Create a Data Access Layer in the Models folder in Solution Explorer & then add a new class ‘UserDAL.cs’.
 
 Step 5 :
 To make interaction between UserDAL and ReactJs, create a WebAPLController name as UserController.cs in Controller folder.
@@ -68,13 +60,3 @@ Add the Navigation Menu under NavMenu.js
 
 Step 9:
 Now run the application to see the output.
-
-
-
-
-
-
-
-
-
-

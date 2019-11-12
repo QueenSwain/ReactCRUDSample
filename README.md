@@ -34,8 +34,11 @@ To connect with database(Get/Post of Data) run the bellow command
 Go to Visual Studio ->Tool->Nuget Package Managerment->Package Manager Console
 
 -Install-Package Microsoft.EntityFrameworkCore.SqlServer -Version 2.1.11
+
 -Install-Package Microsoft.EntityFrameworkCore.Design -Version 2.1.11
+
 -Install-Package Microsoft.EntityFrameworkCore.Tools -Version 2.1.11
+
 -Scaffold-DbContext "Data Source=QUEEN-MACHINE\SQLEXPRESS01;Initial Catalog=ApplicationDB;Integrated Security=True" Microsoft.
  EntityFrameworkCore.SqlServer -OutputDir Models-Tables User
 

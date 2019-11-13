@@ -59,7 +59,7 @@ To perform Get/Post/Edit/Delete action in database layer,
 Create a Data Access Layer in the Models folder in Solution Explorer & then add a new class 'UserDAL.cs'.
 
 **Step 5 :**
-To make interaction between UserDAL and ReactJs, create a WebAPLController name as UserController.cs in Controller folder.
+To make interaction between UserDAL and ReactJs, create a WebAPIController name as UserController.cs in Controller folder.
 
 **Step 6:**
 Create 2 reactjs(named as AddNewUser.tsx and UserLsit.tsx) Components under Solution Explorer->Project->ClientApp->src->components.

@@ -72,3 +72,19 @@ Add the Navigation Menu under NavMenu.js
 
 **Step 9:**
 Now run the application to see the output.
+
+After run,bellow are the output of Application-
+
+1.User Registration
+![enter image description here](https://lh3.googleusercontent.com/D9iuaWGOL0ahJ_AJsbgRlAdSs88J-Otgnq408YBsfj5vZEUFrS-59m1SovyGeW7kNxEW3TmXDBXtcQ "UserRegistration")
+
+2.UserList
+![enter image description here](https://lh3.googleusercontent.com/9ovmm4U2kBLf2CFhH0Z8jXym_ZB1r8Im3h5o8BdBEvEb6Ym823s_-xcJryvaFVrNTE23UnWlJD2d7w "UserList")
+
+3.EditUser
+![enter image description here](https://lh3.googleusercontent.com/rhdXfyyYi6lIMEhLgOQjaazb0wMOjPJW1BvxtZAAV7s3XsT6ZKJIgWTPVf9YVMeQidVbG-DYexPsFQ "Delete User")
+
+
+4.DeleteUser
+![enter image description here](https://lh3.googleusercontent.com/rhdXfyyYi6lIMEhLgOQjaazb0wMOjPJW1BvxtZAAV7s3XsT6ZKJIgWTPVf9YVMeQidVbG-DYexPsFQ "DeleteUser")
+

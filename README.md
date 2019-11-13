@@ -35,7 +35,8 @@ GO
 ```
 
 **Step 2 :**
-Create dotnet core  application using reactjs template.
+Create dotnet core  application using react.js template.
+Open Visual Studio->Create New Project->ASp.Net Core Web Application->Give name of your Solution and project->Choose Version and Project Template as React.js
 
 **Step 3 :**
 To connect with database(Get/Post of Data) run the bellow command 
@@ -56,19 +57,19 @@ Scaffold-DbContext "Data Source=ServerName;Initial Catalog=UserDB;Integrated Sec
 
 **Step 4 :**
 To perform Get/Post/Edit/Delete action in database layer,
-Create a Data Access Layer in the Models folder in Solution Explorer & then add a new class 'UserDAL.cs'.
+Create a Data Access Layer in the Models->Add->Class named as 'UserDAL.cs'.
 
 **Step 5 :**
-To make interaction between UserDAL and ReactJs, create a WebAPIController name as UserController.cs in Controller folder.
+To make interaction between UserDAL and ReactJs, create a WebAPIController name as UserController.cs under Controller->Add->New Item->API Controller Class
 
 **Step 6:**
-Create 2 reactjs(named as AddNewUser.tsx and UserList.tsx) Components under Solution Explorer->Project->ClientApp->src->components.
+Create 2 reactjs(named as AddNewUser.tsx and UserList.tsx) Components under Solution Explorer->Project->ClientApp->src->components->Add->New Item->Type Script JSX file.
 
 **Step 7:**
-To set the Route,Go to App.js and add the newly created components to perform the actions.
+To set the Route,Go to App.js and add the created components(AddNewUser and UserList) to perform the actions.
 
 **Step 8:**
-Add the Navigation Menu under NavMenu.js
+Add the Navigation Menu(Register User and UserList) under NavMenu.js
 
 **Step 9:**
 Now run the application to see the output.

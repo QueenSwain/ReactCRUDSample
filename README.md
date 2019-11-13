@@ -62,10 +62,10 @@ Create a Data Access Layer in the Models folder in Solution Explorer & then add 
 To make interaction between UserDAL and ReactJs, create a WebAPIController name as UserController.cs in Controller folder.
 
 **Step 6:**
-Create 2 reactjs(named as AddNewUser.tsx and UserLsit.tsx) Components under Solution Explorer->Project->ClientApp->src->components.
+Create 2 reactjs(named as AddNewUser.tsx and UserList.tsx) Components under Solution Explorer->Project->ClientApp->src->components.
 
 **Step 7:**
-To set the Route,Go to App.js and add the newly created compents to perform the actions.
+To set the Route,Go to App.js and add the newly created components to perform the actions.
 
 **Step 8:**
 Add the Navigation Menu under NavMenu.js
@@ -73,22 +73,22 @@ Add the Navigation Menu under NavMenu.js
 **Step 9:**
 Now run the application to see the output.
 
-After run,bellow are the output of Application-
+After run,bellow are the output of the Application-
 
 1.User Registration
 
 ![enter image description here](https://lh3.googleusercontent.com/D9iuaWGOL0ahJ_AJsbgRlAdSs88J-Otgnq408YBsfj5vZEUFrS-59m1SovyGeW7kNxEW3TmXDBXtcQ "UserRegistration")
 
-2.UserList
+2.User List
 
 ![enter image description here](https://lh3.googleusercontent.com/9ovmm4U2kBLf2CFhH0Z8jXym_ZB1r8Im3h5o8BdBEvEb6Ym823s_-xcJryvaFVrNTE23UnWlJD2d7w "UserList")
 
-3.EditUser
+3.Edit User
 
 ![enter image description here](https://lh3.googleusercontent.com/rhdXfyyYi6lIMEhLgOQjaazb0wMOjPJW1BvxtZAAV7s3XsT6ZKJIgWTPVf9YVMeQidVbG-DYexPsFQ "Delete User")
 
 
-4.DeleteUser
+4.Delete User
 
 ![enter image description here](https://lh3.googleusercontent.com/rhdXfyyYi6lIMEhLgOQjaazb0wMOjPJW1BvxtZAAV7s3XsT6ZKJIgWTPVf9YVMeQidVbG-DYexPsFQ "DeleteUser")
 

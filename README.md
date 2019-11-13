@@ -11,9 +11,9 @@ Install Visual Studio 2017/2019 include .Net Core 2.0
 Install Node.js and npm
 
 **Step 1 :**
-Create Database 'User'.Now,Run the bellow query to create Table 'User'.
+Create Database 'UserDB'.Now,Run the bellow query to create Table 'User'.
 ```
-USE [ApplicationDB]
+USE [UserDB]
 GO
 SET ANSI_NULLS ON
 GO
@@ -50,7 +50,7 @@ Install-Package Microsoft.EntityFrameworkCore.Design -Version 2.1.11
 Install-Package Microsoft.EntityFrameworkCore.Tools -Version 2.1.11
 ```
 ```
-Scaffold-DbContext "Data Source=**QUEEN-MACHINE\SQLEXPRESS01**;Initial Catalog=ApplicationDB;Integrated Security=True" Microsoft.
+Scaffold-DbContext "Data Source=ServerName;Initial Catalog=UserDB;Integrated Security=True" Microsoft.
  EntityFrameworkCore.SqlServer -OutputDir Models-Tables User
 ```
 
